@@ -1,0 +1,69 @@
+{
+    "app": {
+        "title": "Fleet Tracking Platform",
+        "welcome": {
+            "heading": "Welcome to Fleet Tracking Platform",
+            "subtitle": "A modern microfrontend architecture for fleet management",
+            "description": "Navigate through the menu to access fleet tracking modules that work seamlessly together."
+        }
+    },
+    "nav": {
+        "home": "Home",
+        "dashboard": "Dashboard",
+        "profile": "Profile",
+        "demo": "Demo",
+        "navigation": "Navigation"
+    },
+    "demo": {
+        "title": "Feature Demo",
+        "subtitle": "This page demonstrates theme usage, language switching, and RTL layout support.",
+        "themeSection": {
+            "title": "Theme Showcase",
+            "description": "All components use the centralized Material UI theme with fleet-tracking branded colors.",
+            "primaryBtn": "Primary Action",
+            "secondaryBtn": "Secondary Action",
+            "successBtn": "Success",
+            "warningBtn": "Warning"
+        },
+        "i18nSection": {
+            "title": "Internationalization (i18n)",
+            "description": "Switch the language using the toolbar dropdown. All text on this page is translated dynamically at runtime.",
+            "currentLang": "Current Language",
+            "english": "English",
+            "arabic": "Arabic"
+        },
+        "rtlSection": {
+            "title": "RTL Layout Support",
+            "description": "Toggle the direction using the toolbar button. All components, padding, margins, and icons flip automatically.",
+            "currentDir": "Current Direction",
+            "inputPlaceholder": "Type something here...",
+            "submit": "Submit"
+        },
+        "formSection": {
+            "title": "Sample Form",
+            "firstName": "First Name",
+            "lastName": "Last Name",
+            "email": "Email Address",
+            "vehicleId": "Vehicle ID",
+            "save": "Save Changes",
+            "cancel": "Cancel"
+        }
+    },
+    "direction": {
+        "ltr": "LTR",
+        "rtl": "RTL",
+        "switchToRtl": "Switch to RTL",
+        "switchToLtr": "Switch to LTR"
+    },
+    "language": {
+        "label": "Language",
+        "en": "English",
+        "ar": "العربية"
+    },
+    "modules": {
+        "available": "Available Modules",
+        "home": "Home",
+        "dashboard": "Dashboard",
+        "profile": "Profile"
+    }
+}
