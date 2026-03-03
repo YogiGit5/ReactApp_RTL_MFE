@@ -296,26 +296,3 @@ The Material-UI theme is defined in `packages/ui-core/src/theme/index.ts`:
 **Border Radius**: 10px base, 8–14px for individual components.
 
 ---
-
-## Known Limitations
-
-- No authentication or shared global state management
-- No testing framework configured
-- No CI/CD pipeline
-- No production build/deployment setup
-- Basic UI styling (no full design system)
-- Manual port configuration (hardcoded remote URLs)
-
----
-
-## Next Steps
-
-Potential enhancements to build on top of this foundation:
-
-- Shared state management (Zustand, Redux, or context-based)
-- Authentication & authorization layer
-- Testing setup (Vitest / Jest + React Testing Library)
-- CI/CD pipeline (GitHub Actions)
-- Production deployment with dynamic remote URLs
-- Design system expansion with Storybook
-- Dark mode theme support
