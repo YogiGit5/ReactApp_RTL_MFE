@@ -34,7 +34,7 @@ module.exports = {
       remotes: {
         home: 'home@http://localhost:3001/remoteEntry.js',
         dashboard: 'dashboard@http://localhost:3002/remoteEntry.js',
-        profile: 'profile@http://localhost:3003/remoteEntry.js'
+        profile: 'profile@http://localhost:3003/remoteEntry.js',
       },
       shared: {
         react: { singleton: true, eager: false, requiredVersion: deps.react, strictVersion: false },
@@ -46,7 +46,8 @@ module.exports = {
         '@emotion/cache': { singleton: true, eager: false, requiredVersion: deps['@emotion/cache'], strictVersion: false },
         'i18next': { singleton: true, eager: false, requiredVersion: deps['i18next'], strictVersion: false },
         'react-i18next': { singleton: true, eager: false, requiredVersion: deps['react-i18next'], strictVersion: false },
-        '@rtl-monorepo/ui-core': { singleton: true, eager: false }
+        '@rtl-monorepo/ui-core': { singleton: true, eager: false },
+        '@rtl-monorepo/map-view': { singleton: true, eager: false }
       }
     }),
     new HtmlWebpackPlugin({ template: './index.html' })

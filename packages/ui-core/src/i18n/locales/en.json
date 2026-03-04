@@ -11,6 +11,7 @@
         "home": "Home",
         "dashboard": "Dashboard",
         "profile": "Profile",
+        "map": "Map",
         "demo": "Demo",
         "navigation": "Navigation"
     },
@@ -64,6 +65,28 @@
         "available": "Available Modules",
         "home": "Home",
         "dashboard": "Dashboard",
-        "profile": "Profile"
+        "profile": "Profile",
+        "map": "Map"
+    },
+    "map": {
+        "layerSelector": "Map Layer",
+        "osm": "OpenStreetMap",
+        "google": "Google Maps",
+        "googleNotAvailable": "Google Maps is not available. Add an API key to enable Google Maps.",
+        "configureApiKey": "Configure API Key",
+        "settings": {
+            "title": "Google Maps API Key",
+            "description": "Enter your Google Maps Platform API key to enable Google Maps layers.",
+            "apiKeyLabel": "API Key",
+            "apiKeyPlaceholder": "Enter your Google Maps API key",
+            "validateAndSave": "Validate & Save",
+            "removeKey": "Remove Key",
+            "backToMap": "Back to Map",
+            "validating": "Validating...",
+            "saveSuccess": "API key validated and saved successfully.",
+            "saveError": "Invalid API key. Please check and try again.",
+            "removeSuccess": "API key removed.",
+            "currentKey": "API key is configured"
+        }
     }
 }

@@ -15,6 +15,7 @@ import HomeIcon from '@mui/icons-material/Home';
 import DashboardIcon from '@mui/icons-material/Dashboard';
 import PersonIcon from '@mui/icons-material/Person';
 import ScienceIcon from '@mui/icons-material/Science';
+import MapIcon from '@mui/icons-material/Map';
 import LocalShippingIcon from '@mui/icons-material/LocalShipping';
 
 type Props = {
@@ -26,6 +27,7 @@ const menuItems = [
   { path: '/home', labelKey: 'nav.home', icon: <HomeIcon /> },
   { path: '/dashboard', labelKey: 'nav.dashboard', icon: <DashboardIcon /> },
   { path: '/profile', labelKey: 'nav.profile', icon: <PersonIcon /> },
+  { path: '/map', labelKey: 'nav.map', icon: <MapIcon /> },
   { path: '/demo', labelKey: 'nav.demo', icon: <ScienceIcon /> },
 ];
 

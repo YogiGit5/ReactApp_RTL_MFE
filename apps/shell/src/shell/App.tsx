@@ -15,6 +15,9 @@ import LocalShippingIcon from '@mui/icons-material/LocalShipping'
 import HomeIcon from '@mui/icons-material/Home'
 import DashboardIcon from '@mui/icons-material/Dashboard'
 import PersonIcon from '@mui/icons-material/Person'
+import MapIcon from '@mui/icons-material/Map'
+
+import { MapPage } from '@rtl-monorepo/map-view'
 
 const RemoteHome = lazy(() => import('home/App'))
 const RemoteDashboard = lazy(() => import('dashboard/App'))
@@ -27,6 +30,7 @@ function WelcomeView() {
     { icon: <HomeIcon sx={{ fontSize: 40 }} />, label: t('modules.home'), color: '#42A5F5' },
     { icon: <DashboardIcon sx={{ fontSize: 40 }} />, label: t('modules.dashboard'), color: '#FF6F00' },
     { icon: <PersonIcon sx={{ fontSize: 40 }} />, label: t('modules.profile'), color: '#2E7D32' },
+    { icon: <MapIcon sx={{ fontSize: 40 }} />, label: t('modules.map'), color: '#E91E63' },
   ]
 
   return (
@@ -139,6 +143,7 @@ export default function App() {
             <Route path="/home" element={<RemoteHome />} />
             <Route path="/dashboard" element={<RemoteDashboard />} />
             <Route path="/profile" element={<RemoteProfile />} />
+            <Route path="/map" element={<MapPage />} />
             <Route path="/demo" element={<DemoPage />} />
             <Route path="*" element={<NotFound />} />
           </Routes>

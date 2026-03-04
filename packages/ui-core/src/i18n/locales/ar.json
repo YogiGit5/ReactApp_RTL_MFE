@@ -11,6 +11,7 @@
         "home": "الرئيسية",
         "dashboard": "لوحة التحكم",
         "profile": "الملف الشخصي",
+        "map": "الخريطة",
         "demo": "عرض توضيحي",
         "navigation": "التنقل"
     },
@@ -64,6 +65,28 @@
         "available": "الوحدات المتاحة",
         "home": "الرئيسية",
         "dashboard": "لوحة التحكم",
-        "profile": "الملف الشخصي"
+        "profile": "الملف الشخصي",
+        "map": "الخريطة"
+    },
+    "map": {
+        "layerSelector": "طبقة الخريطة",
+        "osm": "OpenStreetMap",
+        "google": "خرائط جوجل",
+        "googleNotAvailable": "خرائط جوجل غير متاحة. أضف مفتاح API لتفعيل خرائط جوجل.",
+        "configureApiKey": "إعداد مفتاح API",
+        "settings": {
+            "title": "مفتاح API لخرائط جوجل",
+            "description": "أدخل مفتاح API الخاص بمنصة خرائط جوجل لتفعيل طبقات خرائط جوجل.",
+            "apiKeyLabel": "مفتاح API",
+            "apiKeyPlaceholder": "أدخل مفتاح API لخرائط جوجل",
+            "validateAndSave": "تحقق وحفظ",
+            "removeKey": "إزالة المفتاح",
+            "backToMap": "العودة إلى الخريطة",
+            "validating": "جارٍ التحقق...",
+            "saveSuccess": "تم التحقق من مفتاح API وحفظه بنجاح.",
+            "saveError": "مفتاح API غير صالح. يرجى التحقق والمحاولة مرة أخرى.",
+            "removeSuccess": "تم إزالة مفتاح API.",
+            "currentKey": "مفتاح API مُعَدّ"
+        }
     }
 }

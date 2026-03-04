@@ -24,6 +24,7 @@ const navItems = [
   { path: '/home', labelKey: 'nav.home' },
   { path: '/dashboard', labelKey: 'nav.dashboard' },
   { path: '/profile', labelKey: 'nav.profile' },
+  { path: '/map', labelKey: 'nav.map' },
   { path: '/demo', labelKey: 'nav.demo' },
 ];
 

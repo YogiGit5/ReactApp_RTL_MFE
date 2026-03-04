@@ -1,0 +1,13 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(pnpm install:*)",
+      "Bash(where pnpm:*)",
+      "Bash(export:*)",
+      "Bash(npx tsc:*)",
+      "Bash(pnpm:*)",
+      "Bash(npm root:*)",
+      "Bash(ls:*)"
+    ]
+  }
+}
