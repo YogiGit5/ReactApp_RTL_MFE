@@ -7,7 +7,16 @@
       "Bash(npx tsc:*)",
       "Bash(pnpm:*)",
       "Bash(npm root:*)",
-      "Bash(ls:*)"
+      "Bash(ls:*)",
+      "Bash(rm:*)",
+      "Bash(\"/c/Users/YogeshYP/AppData/Roaming/npm/pnpm\" install:*)",
+      "Bash(npx vite:*)",
+      "Bash(tasklist:*)",
+      "Bash(\"/c/Users/YogeshYP/AppData/Roaming/npm/pnpm\":*)",
+      "WebSearch",
+      "WebFetch(domain:module-federation.io)",
+      "WebFetch(domain:www.freecodecamp.org)",
+      "WebFetch(domain:github.com)"
     ]
   }
 }

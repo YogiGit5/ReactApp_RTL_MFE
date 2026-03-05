@@ -5,7 +5,7 @@
   "type": "module",
   "packageManager": "pnpm@9.0.0",
   "scripts": {
-    "dev": "pnpm -r --filter ./apps/* --parallel dev",
+    "dev": "pnpm -r --filter ./apps/* --parallel serve",
     "build": "pnpm -r --filter ./apps/* build",
     "lint": "eslint ."
   },
