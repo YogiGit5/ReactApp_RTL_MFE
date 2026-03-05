@@ -1,29 +1,45 @@
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
-import federation from '@originjs/vite-plugin-federation'
+import { federation } from '@module-federation/vite'
 
 export default defineConfig({
   plugins: [
     react(),
     federation({
       name: 'shell',
+      filename: 'remoteEntry.js',
       remotes: {
-        home: 'http://localhost:3001/assets/remoteEntry.js',
-        dashboard: 'http://localhost:3002/assets/remoteEntry.js',
-        profile: 'http://localhost:3003/assets/remoteEntry.js',
+        home: {
+          type: 'module',
+          name: 'home',
+          entry: 'http://localhost:3001/remoteEntry.js',
+          entryGlobalName: 'home',
+          shareScope: 'default',
+        },
+        dashboard: {
+          type: 'module',
+          name: 'dashboard',
+          entry: 'http://localhost:3002/remoteEntry.js',
+          entryGlobalName: 'dashboard',
+          shareScope: 'default',
+        },
+        profile: {
+          type: 'module',
+          name: 'profile',
+          entry: 'http://localhost:3003/remoteEntry.js',
+          entryGlobalName: 'profile',
+          shareScope: 'default',
+        },
       },
       shared: {
-        react: { singleton: true, requiredVersion: false },
-        'react-dom': { singleton: true, requiredVersion: false },
+        react: { singleton: true, requiredVersion: '^18.0.0' },
+        'react-dom': { singleton: true, requiredVersion: '^18.0.0' },
       },
     }),
   ],
-  server: { port: 3000, cors: true, strictPort: true },
-  preview: { port: 3000, cors: true, strictPort: true },
+  server: { port: 3000, strictPort: true, origin: 'http://localhost:3000' },
+  preview: { port: 3000, strictPort: true, cors: true },
   build: {
-    target: 'esnext',
-    modulePreload: false,
-    minify: false,
-    cssCodeSplit: false,
+    target: 'chrome89',
   },
 })

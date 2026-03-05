@@ -1,6 +1,6 @@
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
-import federation from '@originjs/vite-plugin-federation'
+import { federation } from '@module-federation/vite'
 
 export default defineConfig({
   plugins: [
@@ -12,17 +12,14 @@ export default defineConfig({
         './App': './src/App.tsx',
       },
       shared: {
-        react: { singleton: true, requiredVersion: false },
-        'react-dom': { singleton: true, requiredVersion: false },
+        react: { singleton: true, requiredVersion: '^18.0.0' },
+        'react-dom': { singleton: true, requiredVersion: '^18.0.0' },
       },
     }),
   ],
-  server: { port: 3001, cors: true, strictPort: true },
-  preview: { port: 3001, cors: true, strictPort: true },
+  server: { port: 3001, strictPort: true, origin: 'http://localhost:3001' },
+  preview: { port: 3001, strictPort: true, cors: true },
   build: {
-    target: 'esnext',
-    modulePreload: false,
-    minify: false,
-    cssCodeSplit: false,
+    target: 'chrome89',
   },
 })
