@@ -1,5 +1,6 @@
 import { Link, useLocation } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
+import { useThemeMode } from '@rtl-monorepo/ui-core';
 import Drawer from '@mui/material/Drawer';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
@@ -16,6 +17,8 @@ import DashboardIcon from '@mui/icons-material/Dashboard';
 import PersonIcon from '@mui/icons-material/Person';
 import ScienceIcon from '@mui/icons-material/Science';
 import MapIcon from '@mui/icons-material/Map';
+import DarkModeIcon from '@mui/icons-material/DarkMode';
+import LightModeIcon from '@mui/icons-material/LightMode';
 import LocalShippingIcon from '@mui/icons-material/LocalShipping';
 
 type Props = {
@@ -34,6 +37,7 @@ const menuItems = [
 export default function BurgerMenu({ open, onClose }: Props) {
   const location = useLocation();
   const { t } = useTranslation();
+  const { isDark, toggleMode } = useThemeMode();
 
   return (
     <Drawer
@@ -43,7 +47,9 @@ export default function BurgerMenu({ open, onClose }: Props) {
       PaperProps={{
         sx: {
           width: 280,
-          background: 'linear-gradient(180deg, #F5F7FA 0%, #FFFFFF 100%)',
+          background: isDark
+            ? 'linear-gradient(180deg, #0A1929 0%, #132F4C 100%)'
+            : 'linear-gradient(180deg, #F5F7FA 0%, #FFFFFF 100%)',
         },
       }}
     >
@@ -54,7 +60,9 @@ export default function BurgerMenu({ open, onClose }: Props) {
           alignItems: 'center',
           justifyContent: 'space-between',
           p: 2,
-          background: 'linear-gradient(135deg, #0D47A1, #1565C0)',
+          background: isDark
+            ? 'linear-gradient(135deg, #0A1929, #1A3A5C)'
+            : 'linear-gradient(135deg, #0D47A1, #1565C0)',
           color: 'white',
         }}
       >
@@ -105,6 +113,26 @@ export default function BurgerMenu({ open, onClose }: Props) {
             </ListItem>
           );
         })}
+      </List>
+
+      <Divider />
+
+      {/* Theme Toggle */}
+      <List sx={{ px: 1, py: 1 }}>
+        <ListItem disablePadding>
+          <ListItemButton
+            onClick={toggleMode}
+            sx={{ borderRadius: 2 }}
+          >
+            <ListItemIcon sx={{ minWidth: 40 }}>
+              {isDark ? <LightModeIcon /> : <DarkModeIcon />}
+            </ListItemIcon>
+            <ListItemText
+              primary={isDark ? t('theme.switchToLight') : t('theme.switchToDark')}
+              primaryTypographyProps={{ fontWeight: 500 }}
+            />
+          </ListItemButton>
+        </ListItem>
       </List>
     </Drawer>
   );

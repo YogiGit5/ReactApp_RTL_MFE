@@ -19,9 +19,18 @@ html, body {
   min-height: 100vh;
 }
 
-/* Smooth transitions for RTL/LTR switching */
+/* Smooth transitions for RTL/LTR and theme switching */
 html {
   transition: direction 0.2s ease;
+  color-scheme: light dark;
+}
+
+html[data-theme="dark"] {
+  color-scheme: dark;
+}
+
+html[data-theme="light"] {
+  color-scheme: light;
 }
 
 a {

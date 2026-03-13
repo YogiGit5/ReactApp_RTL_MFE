@@ -6,8 +6,10 @@ import { I18nextProvider } from 'react-i18next';
 import { createAppTheme } from '../theme';
 import { createEmotionCache } from '../theme/createEmotionCache';
 import { DirectionProvider, useDirection } from '../context/DirectionContext';
+import { ThemeModeProvider, useThemeMode } from '../context/ThemeModeContext';
 import i18n from '../i18n';
 import type { Direction } from '@mui/material/styles';
+import type { PaletteMode } from '@mui/material';
 
 interface InnerProvidersProps {
     children: ReactNode;
@@ -15,8 +17,9 @@ interface InnerProvidersProps {
 
 function InnerProviders({ children }: InnerProvidersProps) {
     const { direction } = useDirection();
+    const { mode } = useThemeMode();
 
-    const theme = useMemo(() => createAppTheme(direction), [direction]);
+    const theme = useMemo(() => createAppTheme(direction, mode), [direction, mode]);
     const cache = useMemo(() => createEmotionCache(direction === 'rtl'), [direction]);
 
     return (
@@ -34,12 +37,15 @@ function InnerProviders({ children }: InnerProvidersProps) {
 interface AppProvidersProps {
     children: ReactNode;
     initialDirection?: Direction;
+    initialThemeMode?: PaletteMode;
 }
 
-export function AppProviders({ children, initialDirection = 'ltr' }: AppProvidersProps) {
+export function AppProviders({ children, initialDirection = 'ltr', initialThemeMode }: AppProvidersProps) {
     return (
-        <DirectionProvider initialDirection={initialDirection}>
-            <InnerProviders>{children}</InnerProviders>
-        </DirectionProvider>
+        <ThemeModeProvider initialMode={initialThemeMode}>
+            <DirectionProvider initialDirection={initialDirection}>
+                <InnerProviders>{children}</InnerProviders>
+            </DirectionProvider>
+        </ThemeModeProvider>
     );
 }

@@ -1,6 +1,6 @@
 import { NavLink } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
-import { useDirection } from '@rtl-monorepo/ui-core';
+import { useDirection, useThemeMode } from '@rtl-monorepo/ui-core';
 import AppBar from '@mui/material/AppBar';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
@@ -13,6 +13,8 @@ import Tooltip from '@mui/material/Tooltip';
 import MenuIcon from '@mui/icons-material/Menu';
 import SwapHorizIcon from '@mui/icons-material/SwapHoriz';
 import TranslateIcon from '@mui/icons-material/Translate';
+import DarkModeIcon from '@mui/icons-material/DarkMode';
+import LightModeIcon from '@mui/icons-material/LightMode';
 import LocalShippingIcon from '@mui/icons-material/LocalShipping';
 import { useState } from 'react';
 
@@ -31,11 +33,11 @@ const navItems = [
 export default function Header({ onBurgerClick }: Props) {
   const { t, i18n } = useTranslation();
   const { direction, toggleDirection, setDirection } = useDirection();
+  const { isDark, toggleMode } = useThemeMode();
   const [langAnchor, setLangAnchor] = useState<null | HTMLElement>(null);
 
   const handleLanguageChange = (lang: string) => {
     i18n.changeLanguage(lang);
-    // Auto-set direction based on language
     setDirection(lang === 'ar' ? 'rtl' : 'ltr');
     setLangAnchor(null);
   };
@@ -44,7 +46,9 @@ export default function Header({ onBurgerClick }: Props) {
     <AppBar
       position="sticky"
       sx={{
-        background: 'linear-gradient(135deg, #0D47A1 0%, #1565C0 50%, #1976D2 100%)',
+        background: isDark
+          ? 'linear-gradient(135deg, #0A1929 0%, #132F4C 50%, #1A3A5C 100%)'
+          : 'linear-gradient(135deg, #0D47A1 0%, #1565C0 50%, #1976D2 100%)',
       }}
     >
       <Toolbar sx={{ gap: 1 }}>
@@ -105,6 +109,22 @@ export default function Header({ onBurgerClick }: Props) {
             </Button>
           ))}
         </Box>
+
+        {/* Theme Mode Toggle */}
+        <Tooltip title={isDark ? t('theme.switchToLight') : t('theme.switchToDark')}>
+          <IconButton
+            color="inherit"
+            onClick={toggleMode}
+            sx={{
+              border: '1px solid rgba(255,255,255,0.3)',
+              borderRadius: 2,
+              p: 0.8,
+            }}
+            aria-label="Toggle theme"
+          >
+            {isDark ? <LightModeIcon fontSize="small" /> : <DarkModeIcon fontSize="small" />}
+          </IconButton>
+        </Tooltip>
 
         {/* RTL Toggle */}
         <Tooltip title={direction === 'ltr' ? t('direction.switchToRtl') : t('direction.switchToLtr')}>

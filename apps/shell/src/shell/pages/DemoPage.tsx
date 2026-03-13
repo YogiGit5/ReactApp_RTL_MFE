@@ -1,5 +1,5 @@
 import { useTranslation } from 'react-i18next';
-import { useDirection } from '@rtl-monorepo/ui-core';
+import { useDirection, useThemeMode } from '@rtl-monorepo/ui-core';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import Card from '@mui/material/Card';
@@ -17,10 +17,13 @@ import PaletteIcon from '@mui/icons-material/Palette';
 import TranslateIcon from '@mui/icons-material/Translate';
 import SwapHorizIcon from '@mui/icons-material/SwapHoriz';
 import EditNoteIcon from '@mui/icons-material/EditNote';
+import DarkModeIcon from '@mui/icons-material/DarkMode';
+import LightModeIcon from '@mui/icons-material/LightMode';
 
 export default function DemoPage() {
     const { t, i18n } = useTranslation();
     const { direction } = useDirection();
+    const { mode, isDark, toggleMode } = useThemeMode();
 
     return (
         <Fade in timeout={600}>
@@ -62,7 +65,7 @@ export default function DemoPage() {
                                     </Button>
                                 </Stack>
 
-                                mapType==7 ? <Divider /> : <Divider sx={{ my: 3 }} />
+                                <Divider sx={{ my: 3 }} />
 
                                 {/* Typography Showcase */}
                                 <Typography variant="h4" gutterBottom>H4 Heading</Typography>
@@ -74,10 +77,56 @@ export default function DemoPage() {
                         </Card>
                     </Grid>
 
-                    {/* 2. i18n Section */}
+                    {/* 2. Theme Mode Section */}
                     <Grid item xs={12} md={6}>
                         <Card sx={{ height: '100%' }}>
                             <CardContent>
+                                <Box sx={{ display: 'flex', alignItems: 'center', gap: 1, mb: 2 }}>
+                                    {isDark ? <DarkModeIcon color="primary" /> : <LightModeIcon color="primary" />}
+                                    <Typography variant="h5" fontWeight={600}>
+                                        {t('demo.themeModeSection.title')}
+                                    </Typography>
+                                </Box>
+                                <Typography variant="body2" color="text.secondary" sx={{ mb: 3 }}>
+                                    {t('demo.themeModeSection.description')}
+                                </Typography>
+
+                                <Paper
+                                    variant="outlined"
+                                    sx={{
+                                        p: 2,
+                                        display: 'flex',
+                                        alignItems: 'center',
+                                        gap: 2,
+                                        borderRadius: 2,
+                                        backgroundColor: 'background.default',
+                                    }}
+                                >
+                                    <Typography variant="body1" fontWeight={600}>
+                                        {t('demo.themeModeSection.currentMode')}:
+                                    </Typography>
+                                    <Chip
+                                        icon={isDark ? <DarkModeIcon /> : <LightModeIcon />}
+                                        label={isDark ? t('demo.themeModeSection.dark') : t('demo.themeModeSection.light')}
+                                        color={isDark ? 'secondary' : 'primary'}
+                                        variant="filled"
+                                        sx={{ fontWeight: 600 }}
+                                    />
+                                </Paper>
+
+                                <Box sx={{ mt: 3 }}>
+                                    <Button
+                                        variant="contained"
+                                        onClick={toggleMode}
+                                        startIcon={isDark ? <LightModeIcon /> : <DarkModeIcon />}
+                                    >
+                                        {isDark ? t('theme.switchToLight') : t('theme.switchToDark')}
+                                    </Button>
+                                </Box>
+
+                                <Divider sx={{ my: 3 }} />
+
+                                {/* i18n Section */}
                                 <Box sx={{ display: 'flex', alignItems: 'center', gap: 1, mb: 2 }}>
                                     <TranslateIcon color="primary" />
                                     <Typography variant="h5" fontWeight={600}>
@@ -109,10 +158,14 @@ export default function DemoPage() {
                                         sx={{ fontWeight: 600 }}
                                     />
                                 </Paper>
+                            </CardContent>
+                        </Card>
+                    </Grid>
 
-                                <Divider sx={{ my: 3 }} />
-
-                                {/* RTL Section */}
+                    {/* 3. RTL Section */}
+                    <Grid item xs={12} md={6}>
+                        <Card>
+                            <CardContent>
                                 <Box sx={{ display: 'flex', alignItems: 'center', gap: 1, mb: 2 }}>
                                     <SwapHorizIcon color="primary" />
                                     <Typography variant="h5" fontWeight={600}>
@@ -173,8 +226,8 @@ export default function DemoPage() {
                         </Card>
                     </Grid>
 
-                    {/* 3. Sample Form */}
-                    <Grid item xs={12}>
+                    {/* 4. Sample Form */}
+                    <Grid item xs={12} md={6}>
                         <Card>
                             <CardContent>
                                 <Box sx={{ display: 'flex', alignItems: 'center', gap: 1, mb: 2 }}>
@@ -185,16 +238,16 @@ export default function DemoPage() {
                                 </Box>
 
                                 <Grid container spacing={2} sx={{ mb: 3 }}>
-                                    <Grid item xs={12} sm={6} md={3}>
+                                    <Grid item xs={12} sm={6}>
                                         <TextField fullWidth label={t('demo.formSection.firstName')} />
                                     </Grid>
-                                    <Grid item xs={12} sm={6} md={3}>
+                                    <Grid item xs={12} sm={6}>
                                         <TextField fullWidth label={t('demo.formSection.lastName')} />
                                     </Grid>
-                                    <Grid item xs={12} sm={6} md={3}>
+                                    <Grid item xs={12} sm={6}>
                                         <TextField fullWidth label={t('demo.formSection.email')} type="email" />
                                     </Grid>
-                                    <Grid item xs={12} sm={6} md={3}>
+                                    <Grid item xs={12} sm={6}>
                                         <TextField fullWidth label={t('demo.formSection.vehicleId')} />
                                     </Grid>
                                 </Grid>

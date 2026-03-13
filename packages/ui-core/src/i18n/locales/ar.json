@@ -17,7 +17,7 @@
     },
     "demo": {
         "title": "عرض الميزات",
-        "subtitle": "تعرض هذه الصفحة استخدام السمة وتبديل اللغة ودعم تخطيط RTL.",
+        "subtitle": "تعرض هذه الصفحة أوضاع السمة وتبديل اللغة ودعم تخطيط RTL.",
         "themeSection": {
             "title": "عرض السمة",
             "description": "تستخدم جميع المكونات سمة Material UI المركزية بألوان تتبع الأسطول.",
@@ -25,6 +25,13 @@
             "secondaryBtn": "إجراء ثانوي",
             "successBtn": "نجاح",
             "warningBtn": "تحذير"
+        },
+        "themeModeSection": {
+            "title": "الوضع الداكن / الفاتح",
+            "description": "التبديل بين السمة الداكنة والفاتحة. يتم حفظ التفضيل في المتصفح ويحترم إعدادات النظام.",
+            "currentMode": "الوضع الحالي",
+            "dark": "داكن",
+            "light": "فاتح"
         },
         "i18nSection": {
             "title": "التدويل (i18n)",
@@ -55,6 +62,10 @@
         "rtl": "من اليمين لليسار",
         "switchToRtl": "التبديل إلى RTL",
         "switchToLtr": "التبديل إلى LTR"
+    },
+    "theme": {
+        "switchToDark": "الوضع الداكن",
+        "switchToLight": "الوضع الفاتح"
     },
     "language": {
         "label": "اللغة",

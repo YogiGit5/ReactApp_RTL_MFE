@@ -7,6 +7,7 @@
   "scripts": {
     "dev": "pnpm -r --filter ./apps/* --parallel serve",
     "build": "pnpm -r --filter ./apps/* build",
+    "preview": "pnpm -r --filter ./apps/* --parallel exec vite preview",
     "lint": "eslint ."
   },
   "devDependencies": {

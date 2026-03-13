@@ -17,7 +17,7 @@
     },
     "demo": {
         "title": "Feature Demo",
-        "subtitle": "This page demonstrates theme usage, language switching, and RTL layout support.",
+        "subtitle": "This page demonstrates theme modes, language switching, and RTL layout support.",
         "themeSection": {
             "title": "Theme Showcase",
             "description": "All components use the centralized Material UI theme with fleet-tracking branded colors.",
@@ -25,6 +25,13 @@
             "secondaryBtn": "Secondary Action",
             "successBtn": "Success",
             "warningBtn": "Warning"
+        },
+        "themeModeSection": {
+            "title": "Dark / Light Mode",
+            "description": "Toggle between dark and light themes. The preference is persisted in localStorage and respects system settings.",
+            "currentMode": "Current Mode",
+            "dark": "Dark",
+            "light": "Light"
         },
         "i18nSection": {
             "title": "Internationalization (i18n)",
@@ -55,6 +62,10 @@
         "rtl": "RTL",
         "switchToRtl": "Switch to RTL",
         "switchToLtr": "Switch to LTR"
+    },
+    "theme": {
+        "switchToDark": "Dark Mode",
+        "switchToLight": "Light Mode"
     },
     "language": {
         "label": "Language",
